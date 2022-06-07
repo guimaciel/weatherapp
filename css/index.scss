@@ -8,3 +8,46 @@
     }
 
 }
+
+.container-current{
+    text-align: center;
+    background-color: rgb(164, 164, 246);
+    width: 70%;
+}
+
+.name{ 
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+
+.nameleft{
+    width: 60%; 
+    text-align: right;
+}
+
+
+.nameright{
+    width: 40%; 
+    align-content: center;
+}
+
+
+.descr{
+    font-size: 30px;
+    font-weight: bold;   
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.temp{
+    font-size: 20px;
+    font-weight: bold;   
+}
+
+
+.feel{
+    font-size: 20px;
+}
