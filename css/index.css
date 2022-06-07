@@ -1,7 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+.header {
+  padding-bottom: 1rem;
+}
+.header-top-border {
+  background-color: #9EADBA;
+  padding-top: 2rem;
+}
+.header-container {
+  margin: 0;
+  padding: 0;
+  border: 2px #9EADBA solid;
+}
 .header-container h1 {
-  font-size: 20pt;
+  font-family: "Poppins", sans-serif;
+  font-size: 25pt;
   text-align: center;
 }
+
+.header-search {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 35% 35%;
+  justify-content: space-between;
+}
+.header-search select, .header-search input {
+  font-family: "Poppins", sans-serif;
+  padding: 0.2rem 1rem;
+  border: 0px black solid;
+  background-color: #cfdbe5;
+}
+
+.container {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 75vh;
+}
+.container-background {
+  display: grid;
+  grid-template-columns: 90%;
+  justify-content: center;
+  padding: 2rem;
+  row-gap: 2rem;
+}
+.container-background-current {
+  padding: 2rem;
+  background-color: rgba(158, 173, 186, 0.2274509804);
+  text-align: center;
+}
+.container-background-forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.container-background-forecast-01, .container-background-forecast-02, .container-background-forecast-03, .container-background-forecast-04, .container-background-forecast-05 {
+  background-color: rgba(158, 173, 186, 0.2274509804);
+  text-align: center;
+}
+.container-background-hour {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.container-background-hour-01, .container-background-hour-02, .container-background-hour-03, .container-background-hour-04, .container-background-hour-05, .container-background-hour-06, .container-background-hour-07, .container-background-hour-08 {
+  background-color: rgba(158, 173, 186, 0.2274509804);
+  text-align: center;
+}
+
+.footer {
+  background-color: #9EADBA;
+  text-align: center;
+  bottom: 0px;
+  padding: 0.5rem;
+  color: rgb(65, 65, 65);
+  font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (max-width: 450px) {
+  h1.pageTitle {
+    font-size: 20pt;
+  }
+
+  .header-search {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container-background-forecast {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 1rem;
+  }
+
+  .container-background-hour {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 1rem;
+  }
 
 .container-current {
   text-align: center;
