@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <title>Weather App</title>
 </head>
-<body>
+<body>   
     <header class="header">
         <div class="header-top-border"></div>
         <div class="header-container">
@@ -23,9 +24,13 @@
     <div class="container">
         <div class="container-background">
             <div class="container-background-current">
-                <h1>City name</h1>
-                <h3>#C</h3>
-                <p>Weather info</p>
+               <h1 class="name"> </h1>
+               <p class="descr"> </p>
+               <p class="feel"> </p> 
+               <p class="minmax"> </p>  
+               <p class="temp"> </p>     
+               <p class="other"> </p> 
+             <input type="Submit" value="Refresh" class="button">
             </div>
             <div class="container-background-forecast">
                 <div class="container-background-forecast-01">
@@ -62,5 +67,8 @@
     <footer class="footer">
         <p>Weather APP - Midterm Project by students: Clelia, Guilherme and Pedro</p>
     </footer>
+
+    <script src="js/index.js"></script>
+
 </body>
 </html>

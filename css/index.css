@@ -26,6 +26,7 @@ html, body {
   font-size: 25pt;
   text-align: center;
 }
+
 .header-search {
   margin-top: 1rem;
   padding: 0 1rem;
@@ -111,4 +112,41 @@ html, body {
     grid-template-columns: 100%;
     row-gap: 1rem;
   }
+
+.container-current {
+  text-align: center;
+  background-color: rgb(164, 164, 246);
+  width: 70%;
+}
+
+.name {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.nameleft {
+  width: 60%;
+  text-align: right;
+}
+
+.nameright {
+  width: 40%;
+  align-content: center;
+}
+
+.descr {
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+}
+
+.temp {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.feel {
+  font-size: 20px;
 }/*# sourceMappingURL=index.css.map */
