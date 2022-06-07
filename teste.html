@@ -1,0 +1,126 @@
+<html>
+<head>
+<style type="text/css">
+   body {
+         font-family: sans-serif;
+         font-size: 14px;
+   }
+</style>
+<script>
+    // localStorage.clear();
+    // localStorage.setItem('myCat', 'Tom');
+    // for (let index in localStorage) {
+    //     console.log(`Index: ${index} - Item: ${localStorage[index]}`);
+    // }
+    // console.log(JSON.stringify(localStorage));
+
+</script>
+<title>Google Maps JavaScript API v3 Example: Places Autocomplete</title>
+
+
+<!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsxE91FiqBujK7zwiQTOSdBlhp1FLugLQ&sensor=false&amp;libraries=places" type="text/javascript"></script>
+<script type="text/javascript">
+   function initialize() {
+    var options = {
+        types: ['(cities)'],
+        componentRestrictions: {country: "us"}
+    };
+
+    var input = document.getElementById('searchTextField');
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
+</script> -->
+
+</head>
+<body>
+    <div>
+        <input id="searchTextField" type="text" size="50" placeholder="Search Bar (Cities)">
+        <p id="demo"></p>
+        <select name="favorite" id="favCity">
+            <option value="">Favorite cities</option>
+        </select>
+    </div>
+    <script>
+   
+        var x = document.getElementById("demo");
+        
+        async function getPosition() {
+            let lat, long;
+            let pos = {};
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    pos.lat = position.coords.latitude;
+                    pos.long = position.coords.longitude;
+                });
+            } else {
+                console.log("Erro");
+            }
+
+            // pos = await {lat, long};
+
+            // function showPosition(position) {
+            //     pos = {'Latitude': position.coords.latitude,
+            //                     'Longitude': position.coords.longitude};
+            // }
+
+
+            await console.log(pos);
+
+            return await pos;
+       }
+
+       x.innerHTML = JSON.stringify(getPosition());
+       
+
+
+       function activatePlacesSearch() {
+           let input = document.getElementById('searchTextField');
+           
+           const options = {
+               fields: ['geometry','name'],
+               types: ['(cities)']
+           };
+
+           let autocomplete = new google.maps.places.Autocomplete(input,options);
+
+           autocomplete.addListener("place_changed",() =>{
+               const place = autocomplete.getPlace();
+               try {
+                console.log(`Name: ${place.name} - Position: ${place.geometry.location}`);
+                console.dir(place);
+                localStorage.setItem(place.name, place.geometry.location);
+               } catch(err) {
+                   alert("Location not found!");
+                   console.log("error" + err);
+               }
+               
+            //    new google.maps.Marker({
+            //        position: place.geometry.location,
+            //        title: place.name,
+            //        map: map
+            //    })
+           });
+
+       }
+   </script>
+   <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRebw7mIO41vOkQxqmElw_sc3ondy5VQI&libraries=places&callback=activatePlacesSearch">
+    </script>
+
+    <script>
+        let values= [];
+        let keys = Object.keys(localStorage);
+        let size = keys.length;
+        let selectFav = document.getElementById('favCity');
+        for (let i = 0 ; i < size ; i++) {
+            console.log(keys[i] + " - " + localStorage.getItem(keys[i]));
+            
+            // selectFav.innerHTML = `<option value="${localStorage.getItem(keys[i])}">${keys[i]}</option>`;
+            selectFav.options.add(new Option(keys[i],localStorage.getItem(keys[i])));
+        }
+
+    </script>
+
+</body>
+</html>
