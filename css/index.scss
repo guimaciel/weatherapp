@@ -8,11 +8,14 @@
 html, body {
     height: 100%;
     min-height: 100%;
+
 }
 
 .header {
     // border: 2px #9EADBA solid;
     padding-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.526);
+    
 
     &-top-border {
         background-color: #9EADBA;
@@ -42,14 +45,10 @@ html, body {
         select, input {
             font-family:'Poppins', sans-serif; ;
             padding: 0.2rem 1rem;
-            // border-radius: 1rem;
             border: 0px black solid;
             background-color: #cfdbe5;
         }
     
-        // input {
-        //     width: 20rem;
-        // }
 
     }
 
@@ -58,9 +57,10 @@ html, body {
 }
 
 .container {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.jpeg");
+    // background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgba(0, 0, 0, 0.7);
     // bottom: 0px;
     // display: flex;
     // flex-direction: column;
@@ -142,11 +142,6 @@ html, body {
 
 }
 
-.container-current{
-    text-align: center;
-    background-color: rgb(164, 164, 246);
-    width: 70%;
-}
 
 .name{ 
     display: flex;
@@ -157,7 +152,7 @@ html, body {
 
 .nameleft{
     width: 60%; 
-    text-align: right;
+    text-align: center;
 }
 
 
