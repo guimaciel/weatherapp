@@ -3,14 +3,15 @@
 // define default location:
 let lat = -19.744660;
 let long = -47.943257;
+let unit = "metric";
 
 function geoLeocation() {
   window.navigator.geolocation
   .getCurrentPosition((success) => {
-    return loadWeater(success.coords.latitude,success.coords.longitude);
+    return loadWeater(success.coords.latitude,success.coords.longitude,unit);
     console.dir(success);
   }, (error) => {
-    return loadWeater(lat,long);
+    return loadWeater(lat,long,unit);
   });
 }
 geoLeocation();
@@ -33,7 +34,7 @@ function activatePlacesSearch() {
         let placeCoords = JSON.stringify(place.geometry.location);
         placeCoords = JSON.parse(placeCoords);
         selectFav.selectedIndex = 0;
-        return loadWeater(placeCoords.lat,placeCoords.lng);
+        return loadWeater(placeCoords.lat,placeCoords.lng, unit);
       } catch(err) {
           alert("Location not found!");
           console.log("error" + err);
@@ -75,6 +76,6 @@ selectFav.addEventListener('change',function(){
   console.dir(selectFav);
   if (selectFav[selectFav.selectedIndex].value) {
     const coord = JSON.parse(selectFav[selectFav.selectedIndex].value);
-    return loadWeater(coord.lat,coord.lon);
+    return loadWeater(coord.lat,coord.lon,unit);
   }
 })
