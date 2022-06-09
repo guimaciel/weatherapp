@@ -11,6 +11,7 @@ html, body {
 
 .header {
   padding-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.526);
 }
 .header-top-border {
   background-color: #9EADBA;
@@ -26,7 +27,6 @@ html, body {
   font-size: 25pt;
   text-align: center;
 }
-
 .header-search {
   margin-top: 1rem;
   padding: 0 1rem;
@@ -123,7 +123,7 @@ html, body {
     grid-template-columns: 100%;
     row-gap: 1rem;
   }
-
+}
 .container-current {
   text-align: center;
   background-color: rgb(164, 164, 246);
