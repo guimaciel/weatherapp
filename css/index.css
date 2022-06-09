@@ -42,9 +42,9 @@ html, body {
 }
 
 .container {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgba(0, 0, 0, 0.7);
   min-height: 75vh;
 }
 .container-background {
@@ -91,7 +91,7 @@ html, body {
   flex-direction: row;
   justify-content: center;
   -moz-column-gap: 10rem;
-       column-gap: 10rem;
+  column-gap: 10rem;
 }
 .footer-btnClear {
   padding: 0rem 1rem;
@@ -124,12 +124,6 @@ html, body {
     row-gap: 1rem;
   }
 }
-.container-current {
-  text-align: center;
-  background-color: rgb(164, 164, 246);
-  width: 70%;
-}
-
 .name {
   display: flex;
   flex-direction: row;
@@ -138,19 +132,12 @@ html, body {
 
 .nameleft {
   width: 60%;
-  text-align: right;
+  text-align: center;
 }
 
 .nameright {
   width: 40%;
   align-content: center;
-}
-
-.favbtn {
-  color: rgb(253, 219, 0);
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
 }
 
 .descr {
@@ -167,6 +154,13 @@ html, body {
 
 .feel {
   font-size: 20px;
+}
+
+.favbtn {
+  color: rgb(253, 219, 0);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .loader-container {
@@ -188,7 +182,7 @@ html, body {
   width: 50px;
   height: 50px;
   -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
   position: absolute;
 }
 
