@@ -7,13 +7,15 @@ let minMax = document.querySelector('.minmax');
 let temp = document.querySelector('.temp');
 
 //Pattern value - City Vancouver
-let vlat = 49.24 ;
-let vlong = -123.11;
+// let vlat = 49.24 ;
+// let vlong = -123.11;
 
 //Los Angeles
-//let vlat = 34.05;
-//let vlong = -118.24;
+// let vlat = 34.05;
+// let vlong = -118.24;
 
+let vlat = 49.24;
+let vlong = -123.11;
 
 const loadWeater = (lat, lon) => {
     fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
@@ -21,10 +23,11 @@ const loadWeater = (lat, lon) => {
     .catch(error => console.log('error',error));
 }
 
-loadWeater(vlat, vlong);
+// loadWeater(vlat, vlong);
 
 function getWeater() {
     const currentWeather = localStorage.getItem('weather');
+    console.log("Lat: " + vlat + " Long: " + vlong);
     return JSON.parse(currentWeather);
 };
 
@@ -60,6 +63,8 @@ let icon = CurrentWeather.weather[0].icon;
     console.log(icon);
     console.log(latitude);
     console.log(longitude);
+    console.log("Lat: " + vlat);
+    console.log("Long: " + vlong);
 
 cityName.innerHTML = `<div class="nameleft"> ${Cname}, ${Ccountry}</div><div class="nameright"><span class="material-icons-outlined"> star_border</span></div>`;
 descr.innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon}@2x.png"> ${Ctemp} °C`;
@@ -68,21 +73,36 @@ other.innerHTML=   `Humidity: ${humidity}%      -   Visibility:  ${visibility} k
 minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span>  Min:  ${Cmin} °C  -   Max:  ${Cmax} °C ` ;
 temp.innerHTML =  `<b>${Cweather} </b>(<i>${temperature}</i>)`;
 
-document.body.style.backgroundRepeat= "no-repeat";
-document.body.style.backgroundSize = "cover";  
+// document.body.style.backgroundRepeat= "no-repeat";
+// document.body.style.backgroundSize = "cover";  
+// if ( Cweather=== "Clear"){
+//     document.body.style.backgroundImage = "url('img/sunny.jfif')";
+// }
+// else if( Cweather=== "Rain"  || Cweather === "Thunderstorm"  || Cweather === "Drizzle"  ){
+//     document.body.style.backgroundImage = "url('img/rainy.jfif')";
+// }
+// else if( Cweather=== "Snow"){
+//     document.body.style.backgroundImage = "url('img/snow.jfif')";
+// }
+// else{
+//     document.body.style.backgroundImage = "url('img/cloudy.jfif')";
+// }
 
+const container = document.getElementById('background');
 if ( Cweather=== "Clear"){
-    document.body.style.backgroundImage = "url('img/sunny.jfif')";
+   container.style.backgroundImage = "url('img/sunny.jfif')";
 }
 else if( Cweather=== "Rain"  || Cweather === "Thunderstorm"  || Cweather === "Drizzle"  ){
-    document.body.style.backgroundImage = "url('img/rainy.jfif')";
+   container.style.backgroundImage = "url('img/rainy.jfif')";
 }
 else if( Cweather=== "Snow"){
-    document.body.style.backgroundImage = "url('img/snow.jfif')";
+   container.style.backgroundImage = "url('img/snow.jfif')";
 }
 else{
-    document.body.style.backgroundImage = "url('img/cloudy.jfif')";
+   container.style.backgroundImage = "url('img/cloudy.jfif')";
 }
+container.style.backgroundSize = "cover";
+
 
 
 button.addEventListener('click',function(){
