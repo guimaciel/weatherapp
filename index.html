@@ -7,68 +7,76 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <title>Weather App</title>
+    <!-- <script>localStorage.clear();</script> -->
 </head>
 <body>   
-    <header class="header">
-        <div class="header-top-border"></div>
-        <div class="header-container">
-          <h1 class="pageTitle">Weather App</h1>
-        </div>
-        <div class="header-search">
-            <select name="favorite" id="favCity" class="favCity">
-                <option value="">Favorite cities</option>
-            </select>
-            <input id="searchTextField" class="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
-        </div>
-    </header>
-    <div class="container">
-        <div class="container-background">
-            <div class="container-background-current">
-               <h1 class="name"> </h1>
-               <p class="descr"> </p>
-               <p class="feel"> </p> 
-               <p class="minmax"> </p>  
-               <p class="temp"> </p>     
-               <p class="other"> </p> 
-             <input type="Submit" value="Refresh" class="button">
+    <div class="background" id="background">
+        <header class="header">
+            <div class="header-top-border"></div>
+            <div class="header-container">
+            <h1 class="pageTitle">Weather App</h1>
             </div>
-            <div class="container-background-forecast">
-                <div class="container-background-forecast-01">
-                    <h1>Day 01</h1>
-                    <p>#C</p>
-                    <p>#C</p>
-                    <p>#C</p>
-                    <p>#C</p>
-                    <p>#C</p>
+            <div class="header-search">
+                <select name="favorite" id="favCity" class="favCity">
+                    <option value="">Favorite cities</option>
+                </select>
+                <input id="searchTextField" class="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
+            </div>
+        </header>
+        <div class="container" id="container">
+            <div class="container-background">
+                <div class="container-background-current">
+                <h1 class="name"> </h1>
+                <p class="descr"> </p>
+                <p class="feel"> </p> 
+                <p class="minmax"> </p>  
+                <p class="temp"> </p>     
+                <p class="other"> </p> 
+                <input type="Submit" value="Refresh" class="button">
                 </div>
-                <div class="container-background-forecast-02"><h1>Day 02</h1></div>
-                <div class="container-background-forecast-03"><h1>Day 03</h1></div>
-                <div class="container-background-forecast-04"><h1>Day 04</h1></div>
-                <div class="container-background-forecast-05"><h1>Day 05</h1></div>
-            </div>
-            <div class="container-background-hour">
-                <div class="container-background-hour-01">
-                    <h1>0-3</h1>
-                    <p>#C</p>
-                    <p>#C</p>
-                    <p>#C</p>
-                    <p>#C</p>
+                <div class="container-background-forecast">
+                    <div class="container-background-forecast-01">
+                        <h1>Day 01</h1>
+                        <p>#C</p>
+                        <p>#C</p>
+                        <p>#C</p>
+                        <p>#C</p>
+                        <p>#C</p>
+                    </div>
+                    <div class="container-background-forecast-02"><h1>Day 02</h1></div>
+                    <div class="container-background-forecast-03"><h1>Day 03</h1></div>
+                    <div class="container-background-forecast-04"><h1>Day 04</h1></div>
+                    <div class="container-background-forecast-05"><h1>Day 05</h1></div>
                 </div>
-                <div class="container-background-hour-02"><h1>3-6</h1></div>
-                <div class="container-background-hour-03"><h1>6-9</h1></div>
-                <div class="container-background-hour-04"><h1>9-12</h1></div>
-                <div class="container-background-hour-05"><h1>12-15</h1></div>
-                <div class="container-background-hour-06"><h1>15-18</h1></div>
-                <div class="container-background-hour-07"><h1>18-21</h1></div>
-                <div class="container-background-hour-08"><h1>21-0</h1></div>
+                <div class="container-background-hour">
+                    <div class="container-background-hour-01">
+                        <h1>0-3</h1>
+                        <p>#C</p>
+                        <p>#C</p>
+                        <p>#C</p>
+                        <p>#C</p>
+                    </div>
+                    <div class="container-background-hour-02"><h1>3-6</h1></div>
+                    <div class="container-background-hour-03"><h1>6-9</h1></div>
+                    <div class="container-background-hour-04"><h1>9-12</h1></div>
+                    <div class="container-background-hour-05"><h1>12-15</h1></div>
+                    <div class="container-background-hour-06"><h1>15-18</h1></div>
+                    <div class="container-background-hour-07"><h1>18-21</h1></div>
+                    <div class="container-background-hour-08"><h1>21-0</h1></div>
+                </div>
             </div>
         </div>
+        <footer class="footer">
+            <p>Weather APP - Midterm Project by students: Clelia, Guilherme and Pedro</p>
+        </footer>
     </div>
-    <footer class="footer">
-        <p>Weather APP - Midterm Project by students: Clelia, Guilherme and Pedro</p>
-    </footer>
 
-    <script src="js/index.js"></script>
+
+    <script src="js/dayweather.js"></script>
+    <script src="js/location.js"></script>    
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRebw7mIO41vOkQxqmElw_sc3ondy5VQI&libraries=places&callback=activatePlacesSearch">
+    </script>
 
 </body>
 </html>

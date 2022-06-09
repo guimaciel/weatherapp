@@ -35,7 +35,7 @@
 </head>
 <body>
     <div>
-        <input id="searchTextField" type="text" size="50" placeholder="Search Bar (Cities)">
+        <input id="searchTextField" type="text" size="50" placeholder="Search Bar (Cities)\">
         <p id="demo"></p>
         <select name="favorite" id="favCity">
             <option value="">Favorite cities</option>
@@ -52,6 +52,7 @@
                 navigator.geolocation.getCurrentPosition((position) => {
                     pos.lat = position.coords.latitude;
                     pos.long = position.coords.longitude;
+                    x.innerHTML = pos.lat;
                 });
             } else {
                 console.log("Erro");
@@ -65,12 +66,19 @@
             // }
 
 
-            await console.log(pos);
+            // await console.log(pos);
 
             return await pos;
        }
 
-       x.innerHTML = JSON.stringify(getPosition());
+       async function teste() {
+        let teste = await JSON.stringify(getPosition());
+        await console.log("teste " + teste);
+       }
+
+       teste();
+
+       
        
 
 
