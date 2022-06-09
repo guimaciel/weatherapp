@@ -8,9 +8,16 @@ let temp = document.querySelector('.temp');
 
 let vlat = 0;
 let vlong = 0;
+let vunit = "metric";
 
-const loadWeater = (lat, lon) => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
+function changeUnit(clat, clon, cunit){
+   vunit = cunit
+   console.log(vunit);
+   loadWeater(clat,clon,cunit);
+}
+
+const loadWeater = (lat, lon, unit) => {
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units='+unit+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
     .then(data => {getWeater(JSON.stringify(data))})
     .catch(error => console.log('error',error));
 }
@@ -18,11 +25,13 @@ const loadWeater = (lat, lon) => {
 function getWeater(weather) {
    let currentWeather = JSON.parse(weather);
    console.dir(currentWeather);
+
    if (currentWeather) {
       let Cname= currentWeather.name;
       let Ccountry= currentWeather.sys.country;
       let latitude = currentWeather.coord.lat;
       let longitude= currentWeather.coord.lon;
+      let simbol = "";
       let Ctemp = currentWeather.main.temp;
       let Cfeel= currentWeather.main.feels_like;
       let Cmin = currentWeather.main.temp_min;
@@ -34,10 +43,19 @@ function getWeater(weather) {
       let icon = currentWeather.weather[0].icon;
 
       cityName.innerHTML = `<div class="nameleft"> ${Cname}, ${Ccountry}</div><div class="nameright"><span class="material-icons-outlined"> star_border</span></div>`;
-      descr.innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon}@2x.png"> ${Ctemp} °C`;
-      feel.innerHTML = `Feels like:  ${Cfeel} °C`;
-      other.innerHTML=   `Humidity: ${humidity}%      -   Visibility:  ${visibility} km`;
-      minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span>  Min:  ${Cmin} °C  -   Max:  ${Cmax} °C ` ;
+     
+      if (vunit === "imperial"){
+         simbol = "°F";         
+         descr.innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon}@2x.png"> ${Ctemp} <span> °F | </span>  <a href="#" onClick="return changeUnit(${latitude}, ${longitude},'metric')"> °C </a>`;
+      }
+      else{
+        simbol = "°C";
+        descr.innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon}@2x.png"> ${Ctemp} <span>°C | </span>    <a href="#" onClick=" return changeUnit(${latitude}, ${longitude},'imperial')">°F </a>`;
+       }
+                
+      feel.innerHTML = `<b>Feels like:</b>  ${Cfeel} ${simbol}`;
+      other.innerHTML=   `<b>Humidity:</b> ${humidity}%      -   <b>Visibility:</b>  ${visibility} km`;
+      minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span> <b> Min:</b>  ${Cmin} ${simbol}  -   <b>Max:</b>  ${Cmax} ${simbol} ` ;
       temp.innerHTML =  `<b>${Cweather} </b>(<i>${temperature}</i>)`;
 
       const container = document.getElementById('background');

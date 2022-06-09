@@ -9,19 +9,20 @@ let temp = document.querySelector('.temp');
 //Pattern value - City Vancouver
 let vlat = 49.24 ;
 let vlong = -123.11;
+let vunit = "metric";
 
 //Los Angeles
 //let vlat = 34.05;
 //let vlong = -118.24;
 
 
-const loadWeater = (lat, lon) => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
+const loadWeater = (lat, lon,unit) => {
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units='+unit+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
     .then(data => {localStorage.setItem('weather', JSON.stringify(data))})
     .catch(error => console.log('error',error));
 }
 
-loadWeater(vlat, vlong);
+loadWeater(vlat, vlong, vunit);
 
 function getWeater() {
     const currentWeather = localStorage.getItem('weather');

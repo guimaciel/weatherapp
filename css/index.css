@@ -121,7 +121,7 @@ html, body {
 
 .nameleft {
   width: 60%;
-  text-align: right;
+  text-align: center;
 }
 
 .nameright {
@@ -130,17 +130,43 @@ html, body {
 }
 
 .descr {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
+  padding-bottom: 1em;
 }
 
 .temp {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
+  padding-bottom: 1em;
 }
 
 .feel {
   font-size: 20px;
+  padding-bottom: 1em;
+}
+
+.other {
+  font-size: 20px;
+}
+
+.minmax {
+  font-size: 20px;
+}
+
+span {
+  font-size: 16px;
+}
+
+a {
+  color: black;
+  font-style: normal;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(248, 149, 2);
 }/*# sourceMappingURL=index.css.map */
