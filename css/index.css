@@ -42,9 +42,9 @@ html, body {
 }
 
 .container {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.7);
   min-height: 75vh;
 }
 .container-background {
@@ -87,6 +87,17 @@ html, body {
   padding: 0.5rem;
   color: rgb(65, 65, 65);
   font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  -moz-column-gap: 10rem;
+       column-gap: 10rem;
+}
+.footer-btnClear {
+  padding: 0rem 1rem;
+  background-color: rgba(148, 148, 148, 0.638);
+  border: 0;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 450px) {
@@ -113,6 +124,12 @@ html, body {
     row-gap: 1rem;
   }
 }
+.container-current {
+  text-align: center;
+  background-color: rgb(164, 164, 246);
+  width: 70%;
+}
+
 .name {
   display: flex;
   flex-direction: row;
@@ -129,6 +146,13 @@ html, body {
   align-content: center;
 }
 
+.favbtn {
+  color: rgb(253, 219, 0);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .descr {
   font-size: 30px;
   font-weight: bold;
@@ -143,4 +167,45 @@ html, body {
 
 .feel {
   font-size: 20px;
+}
+
+.loader-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.736);
+}
+
+.loader {
+  border: 8px solid #787878;
+  /* Light grey */
+  border-top: 8px solid #3d9edf;
+  /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: absolute;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=index.css.map */
