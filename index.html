@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <title>Weather App</title>
-    <!-- <script>localStorage.clear();</script> -->
 </head>
 <body>   
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+    </div>
     <div class="background" id="background">
         <header class="header">
             <div class="header-top-border"></div>
@@ -33,15 +35,9 @@
                         <p class="other"> </p>
                         <p class="feel"> </p> 
                </div>
+
                 <div class="container-background-forecast">
-                    <div class="container-background-forecast-01">
-                        <h1>Day 01</h1>
-                        <p>#C</p>
-                        <p>#C</p>
-                        <p>#C</p>
-                        <p>#C</p>
-                        <p>#C</p>
-                    </div>
+                    <div class="container-background-forecast-01"><h1>Day 01</h1></div>
                     <div class="container-background-forecast-02"><h1>Day 02</h1></div>
                     <div class="container-background-forecast-03"><h1>Day 03</h1></div>
                     <div class="container-background-forecast-04"><h1>Day 04</h1></div>
@@ -64,15 +60,19 @@
                     <div class="container-background-hour-08"><h1>21-0</h1></div>
                 </div>
             </div>
+
         </div>
+
         <footer class="footer">
-            <p>Weather APP - Midterm Project by students: Clelia, Guilherme and Pedro</p>
+            <p>Weather APP - Midterm Project WEBDEVII - Students: Clelia, Guilherme and Pedro</p>
+            <button class="footer-btnClear" id="btnClear" title="Clear Favorite CIties">Clear Favorite</button>
         </footer>
     </div>
 
-
     <script src="js/dayweather.js"></script>
-    <script src="js/location.js"></script>    
+    <script src="js/location.js"></script>
+
+
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRebw7mIO41vOkQxqmElw_sc3ondy5VQI&libraries=places&callback=activatePlacesSearch">
     </script>

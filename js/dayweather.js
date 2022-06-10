@@ -42,7 +42,12 @@ function getWeater(weather) {
       let visibility= currentWeather.visibility / 1000;
       let icon = currentWeather.weather[0].icon;
 
-      cityName.innerHTML = `<div class="nameleft"> ${Cname}, ${Ccountry}</div><div class="nameright"><span class="material-icons-outlined"> star_border</span></div>`;
+      let city = Cname + ", " + Ccountry;
+      let star = "star_border";
+      if (localStorage.getItem(city)) {
+         star = "star";
+      }
+      cityName.innerHTML = `<div class="nameleft">${city}</div><div class="nameright"><button class="favbtn" id="favbtn" title="Add city to favorite"><span class="material-icons-outlined" id="star_ico">${star}</span></button></div>`;
      
       if (vunit === "imperial"){
          simbol = "°F";         
@@ -51,12 +56,20 @@ function getWeater(weather) {
       else{
         simbol = "°C";
         descr.innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon}@2x.png"> ${Ctemp} <span>°C | </span>    <a href="#" onClick=" return changeUnit(${latitude}, ${longitude},'imperial')">°F </a>`;
-       }
+      }
                 
+<<<<<<< HEAD
       feel.innerHTML = `<label>Feels like:</label>  ${Cfeel} ${simbol}`;
       other.innerHTML=   `<label>Humidity:</label> ${humidity}%      -   <label>Visibility:</label>  ${visibility} km`;
       minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span> <label> Min:</label>  ${Cmin} ${simbol}  -   <label>Max:</label>  ${Cmax} ${simbol} ` ;
       temp.innerHTML =  `<label>${Cweather} </label>(<i>${temperature}</i>)`;
+=======
+      feel.innerHTML = `<b>Feels like:</b>  ${Cfeel} ${simbol}`;
+      other.innerHTML=   `<b>Humidity:</b> ${humidity}%      -   <b>Visibility:</b>  ${visibility} km`;
+      minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span> <b> Min:</b>  ${Cmin} ${simbol}  -   <b>Max:</b>  ${Cmax} ${simbol} ` ;
+
+      temp.innerHTML =  `<b>${Cweather} </b>(<i>${temperature}</i>)`;
+>>>>>>> 3b89fea4b6afd6e13cbdaf2a84fcda526be6cc2d
 
       const container = document.getElementById('background');
       if ( Cweather=== "Clear"){
@@ -72,5 +85,27 @@ function getWeater(weather) {
          container.style.backgroundImage = "url('img/cloudy.jfif')";
       }
       container.style.backgroundSize = "cover";
+<<<<<<< HEAD
+=======
+
+      const divLoader = document.getElementById('loader');
+      divLoader.style.display = "none";
+
+      // Add city as favorite
+      let btnFav = document.getElementById("favbtn");
+      btnFav.addEventListener('click',function(){
+         const starIco = document.getElementById("star_ico");
+         if (btnFav.outerText === "star") {
+            starIco.innerText = "star_border"
+            localStorage.removeItem(city);
+         } else {
+            starIco.innerText = "star";
+            const coord = {lat:currentWeather.coord.lat, lon: currentWeather.coord.lon};
+            localStorage.setItem(city,JSON.stringify(coord));
+         }
+         fillSelect();
+      })
+
+>>>>>>> 3b89fea4b6afd6e13cbdaf2a84fcda526be6cc2d
    }
 }
