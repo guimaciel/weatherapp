@@ -1,4 +1,5 @@
 
+
 let vlat = 0;
 let vlong = 0;
 let vunit = "metric";
@@ -17,16 +18,17 @@ const loadWeater = (lat, lon, unit) => {
 
 function getWeater() {
     const currentWeather = localStorage.getItem('weather');
+    
+    if (currentWeather){
+    
+        let Ctemp = currentWeather.main.temp;
+        let Cfeel= currentWeather.main.feels_like;
+        let Cmin = currentWeather.main.temp_min;
+        let Cmax = currentWeather.main.temp_max;
+        
+    }
     return JSON.parse(currentWeather);
 };
 
 console.dir(currentWeather);
 
-if (currentWeather){
-    
-    let Ctemp = currentWeather.main.temp;
-    let Cfeel= currentWeather.main.feels_like;
-    let Cmin = currentWeather.main.temp_min;
-    let Cmax = currentWeather.main.temp_max;
-    
-}
