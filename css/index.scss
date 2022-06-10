@@ -75,7 +75,7 @@ html, body {
         row-gap: 2rem;
         &-current {
             padding: 2rem;
-            background-color: #9eadba3a;
+            background-color: #9eadba85;
             text-align: center;
         }
 
@@ -84,7 +84,7 @@ html, body {
             grid-template-columns: repeat(5, 1fr);
             column-gap: 1rem;
             &-01, &-02, &-03, &-04, &-05 {
-                background-color: #9eadba3a;
+                background-color: #9eadba85;
                 text-align: center;
                 
             }
@@ -95,7 +95,7 @@ html, body {
             grid-template-columns: repeat(8, 1fr);
             column-gap: 1rem;
             &-01, &-02, &-03, &-04, &-05, &-06, &-07, &-08 {
-                background-color: #9eadba3a;
+                background-color: #9eadba85;
                 text-align: center;
             }
         }
@@ -207,3 +207,7 @@ a {
     a:hover{
       color:rgb(248, 149, 2);
     }
+
+ label{
+    font-weight: bold;
+ }   

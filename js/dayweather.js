@@ -53,10 +53,10 @@ function getWeater(weather) {
         descr.innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon}@2x.png"> ${Ctemp} <span>°C | </span>    <a href="#" onClick=" return changeUnit(${latitude}, ${longitude},'imperial')">°F </a>`;
        }
                 
-      feel.innerHTML = `<b>Feels like:</b>  ${Cfeel} ${simbol}`;
-      other.innerHTML=   `<b>Humidity:</b> ${humidity}%      -   <b>Visibility:</b>  ${visibility} km`;
-      minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span> <b> Min:</b>  ${Cmin} ${simbol}  -   <b>Max:</b>  ${Cmax} ${simbol} ` ;
-      temp.innerHTML =  `<b>${Cweather} </b>(<i>${temperature}</i>)`;
+      feel.innerHTML = `<label>Feels like:</label>  ${Cfeel} ${simbol}`;
+      other.innerHTML=   `<label>Humidity:</label> ${humidity}%      -   <label>Visibility:</label>  ${visibility} km`;
+      minMax.innerHTML = `<span class="material-icons-outlined">device_thermostat</span> <label> Min:</label>  ${Cmin} ${simbol}  -   <label>Max:</label>  ${Cmax} ${simbol} ` ;
+      temp.innerHTML =  `<label>${Cweather} </label>(<i>${temperature}</i>)`;
 
       const container = document.getElementById('background');
       if ( Cweather=== "Clear"){
@@ -66,12 +66,11 @@ function getWeater(weather) {
          container.style.backgroundImage = "url('img/rainy.jfif')";
       }
       else if( Cweather=== "Snow"){
-         container.style.backgroundImage = "url('img/snow.jfif')";
+         container.style.backgroundImage = "url('img/snowy.jfif')";
       }
       else{
          container.style.backgroundImage = "url('img/cloudy.jfif')";
       }
       container.style.backgroundSize = "cover";
-
    }
 }
