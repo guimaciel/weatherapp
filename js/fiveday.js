@@ -1,6 +1,3 @@
-var button = document.querySelector('.button');
-let cityName = document.querySelector('.name');
-
 let descrh1 = document.querySelector('.descrh1');
 let feelh1 = document.querySelector('.feelh1');
 let otherh1 = document.querySelector('.otherh1');
@@ -79,9 +76,6 @@ let otherd5 = document.querySelector('.otherd5');
 let minMaxd5 = document.querySelector('.minmaxd5');
 let tempd5 = document.querySelector('.tempd5');
 
-let vlat = 0;
-let vlong = 0;
-let vunit = "metric";
 
 function changeUnit(clat, clon, cunit){
    vunit = cunit
@@ -89,25 +83,38 @@ function changeUnit(clat, clon, cunit){
    loadWeater(clat,clon,cunit);
 }
 
-const loadWeater = (lat, lon, unit) => {
-    fetch('https://api.openweathermap.org/data/2.5/forecast/hourly?lat='+lat+'&lon='+lon+'&units='+unit+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
-    .then(data => {getWeater(JSON.stringify(data))})
+const loadWeaterHour = (lat, lon, unit) => {
+    fetch('https://api.openweathermap.org/data/2.5/forecast/hourly?lat='+lat+'&lon='+lon+'&units='+unit+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd'+'&cnt=8').then(res=> res.json())
+    .then(data => {getWeaterHour(JSON.stringify(data))})
     .catch(error => console.log('error',error));
 }
 
-function getWeater() {
-    const currentWeather = localStorage.getItem('weather');
+const loadWeaterDay = (lat, lon, unit) => {
+    fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units='+unit+'&cnt=5'+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
+    .then(data => {getWeaterDay(JSON.stringify(data))})
+    .catch(error => console.log('error',error));
+}
+
+function getWeaterHour() {
+    const currentWeatherHour = localStorage.getItem('weather');
     
-    if (currentWeather){
+    if (currentWeatherHour){
     
-        let Ctemp = currentWeather.main.temp;
-        let Cfeel= currentWeather.main.feels_like;
-        let Cmin = currentWeather.main.temp_min;
-        let Cmax = currentWeather.main.temp_max;
-        
+                
     }
-    return JSON.parse(currentWeather);
+    return JSON.parse(currentWeatherHour);
 };
 
-console.dir(currentWeather);
+function getWeaterDay() {
+    const currentWeatherDay = localStorage.getItem('weather');
+    
+    if (currentWeatherDay){
+    
+       
+    }
+    return JSON.parse(currentWeatherDay);
+};
+
+console.dir(currentWeatherDay);
+
 
