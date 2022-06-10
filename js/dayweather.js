@@ -24,7 +24,7 @@ const loadWeater = (lat, lon, unit) => {
 
 function getWeater(weather) {
    let currentWeather = JSON.parse(weather);
-   console.dir(currentWeather);
+   
 
    if (currentWeather) {
       let Cname= currentWeather.name;
