@@ -50,29 +50,79 @@ function getWeatherForecast(weather) {
                 <div class="line"><p class="title">Max: </p><p class="info">${maxTempDay}${unitSymbol}</p></div>
                 `
                 containerForecast.appendChild(divDay);
+
+                divDay.addEventListener('click', function(){
+                    changeHoursForecast(weather,dt);
+                });
                 
                 
 
                 weatherCond = {};
             }           
 
-            // Forecast 8 hours ahead
-            if (hourIndex < 8 ) {                
-                let divHour = document.createElement("div");
-                divHour.className = `container-background-hour-0${count}`;
-                divHour.innerHTML = `<p class="hours">${dt.getHours()} - ${addHours(dt,3).getHours()}</p>
-                <img src=" http://openweathermap.org/img/wn/${icon}@2x.png">
-                <h1>${weather.list[hourIndex].main.temp}${unitSymbol}</h1>                
-                `;
-                containerHour.appendChild(divHour);
+            if (count === 1) {
+                changeHoursForecast(weather,dt);
             }
+            // Forecast 8 hours ahead
+            // if (hourIndex < 8 ) {                
+            //     let divHour = document.createElement("div");
+            //     divHour.className = `container-background-hour-0${count}`;
+            //     divHour.innerHTML = `<p class="hours">${dt.getHours()} - ${addHours(dt,3).getHours()}</p>
+            //     <img src=" http://openweathermap.org/img/wn/${icon}@2x.png">
+            //     <h1>${weather.list[hourIndex].main.temp}${unitSymbol}</h1>                
+            //     `;
+            //     containerHour.appendChild(divHour);
+            // }
         }
     }
 
 }
 
 function addHours(dt,hoursAdd) {
-    const newDt = dt;
+    const newDt = new Date();
     newDt.setTime(dt.getTime() + (hoursAdd*60*60*1000));
     return newDt;
+}
+
+function changeHoursForecast(weather,dt) {
+    console.log(dt);
+    console.dir(weather);
+    const containerHour = document.getElementById("container-background-hour");
+    containerHour.innerHTML = "";
+    let count = 0;
+    let unitSymbol = "°" + (vunit === "metric" ? "C" : "F");
+    let checkDate = false;
+    for (let hourIndex in weather.list) {
+        const dtList = new Date(weather.list[hourIndex].dt * 1000);
+        if (dt.toLocaleDateString() === dtList.toLocaleDateString()) {
+            checkDate = true;
+        }
+        if (checkDate && count < 8) {
+            count++;
+            console.log(count);
+            let icon = weather.list[hourIndex].weather[0].icon;
+            console.log(dt.toLocaleDateString() + " - " + dtList.toLocaleDateString() + " - " + count);
+            let divHour = document.createElement("div");
+            divHour.className = `container-background-hour-0${count}`;
+            divHour.innerHTML = `
+            <p class="date">${dtList.toLocaleDateString()}</p>
+            <p class="hours">${dtList.getHours()} - ${addHours(dtList,3).getHours()}</p>
+            <img src=" http://openweathermap.org/img/wn/${icon}@2x.png">
+            <h1>${weather.list[hourIndex].main.temp}${unitSymbol}</h1>                
+            `;
+            containerHour.appendChild(divHour);
+        }
+    }
+    // const containerHour = document.getElementById("container-background-hour");
+    // containerHour.innerHTML = "";
+    // if (hourIndex < 8 ) {                
+    //     let divHour = document.createElement("div");
+    //     divHour.className = `container-background-hour-0${count}`;
+    //     divHour.innerHTML = `<p class="hours">${dt.getHours()} - ${addHours(dt,3).getHours()}</p>
+    //     <img src=" http://openweathermap.org/img/wn/${icon}@2x.png">
+    //     <h1>${weather.list[hourIndex].main.temp}${unitSymbol}</h1>                
+    //     `;
+    //     containerHour.appendChild(divHour);
+    // }
+
 }

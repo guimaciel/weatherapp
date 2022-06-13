@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<body>
+
+   <script>
+      
+      const loadWeaterDay = (lat, lon, unit) => {
+         fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units='+unit+'&cnt=5'+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd').then(res=> res.json())
+         .then(data => {console.dir(data)})
+         .catch(error => console.log('error',error));
+}
+      
+      const loadWeaterHour = (lat, lon, unit) => {
+         fetch('https://api.openweathermap.org/data/2.5/forecast/hourly?lat='+lat+'&lon='+lon+'&units='+unit+'&appid=6fe6f8dc9f3b29c275f458284bb12fcd'+'&cnt=8').then(res=> res.json())
+         .then(data => {console.log(data)})
+         .catch(error => console.log('error' + error));
+
+      }
+      let vlat = 49.2827;
+      let vlong = -123.1066;
+      let vunit = "metric";
+
+      loadWeaterDay(vlat,vlong,vunit);
+      loadWeaterHour(vlat,vlong,vunit);
+   </script>
+
+</body>
+</html>
