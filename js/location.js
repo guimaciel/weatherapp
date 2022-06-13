@@ -1,17 +1,18 @@
 
 // Get user location or set a default location
 // define default location:
-let lat = -19.744660;
-let long = -47.943257;
+let lat = 49.2827;
+let long = -123.1066;
 let unit = "metric";
 
 function geoLeocation() {
   window.navigator.geolocation
   .getCurrentPosition((success) => {
-    return loadWeater(success.coords.latitude,success.coords.longitude,unit);
-    console.dir(success);
+    loadWeater(success.coords.latitude,success.coords.longitude,unit);
+    loadWeatherForecast(success.coords.latitude,success.coords.longitude,unit);
   }, (error) => {
-    return loadWeater(lat,long,unit);
+    loadWeater(lat,long,unit);
+    loadWeatherForecast(lat,long,unit);
   });
 }
 geoLeocation();
@@ -34,10 +35,10 @@ function activatePlacesSearch() {
         let placeCoords = JSON.stringify(place.geometry.location);
         placeCoords = JSON.parse(placeCoords);
         selectFav.selectedIndex = 0;
-        return loadWeater(placeCoords.lat,placeCoords.lng, unit);
+        loadWeater(placeCoords.lat,placeCoords.lng, unit);
+        loadWeatherForecast(placeCoords.lat,placeCoords.lng, unit);
       } catch(err) {
           alert("Location not found!");
-          console.log("error" + err);
       }
   });
 }
@@ -72,10 +73,9 @@ function fillSelect() {
 // Select Event Listener
 selectFav.addEventListener('change',function(){
   inputSearch.value = "";
-  console.log("change select");
-  console.dir(selectFav);
   if (selectFav[selectFav.selectedIndex].value) {
     const coord = JSON.parse(selectFav[selectFav.selectedIndex].value);
-    return loadWeater(coord.lat,coord.lon,unit);
+    loadWeater(coord.lat,coord.lon,unit);
+    loadWeatherForecast(coord.lat,coord.lon,unit);
   }
 })

@@ -12,8 +12,8 @@ let vunit = "metric";
 
 function changeUnit(clat, clon, cunit){
    vunit = cunit
-   console.log(vunit);
    loadWeater(clat,clon,cunit);
+   loadWeatherForecast(clat,clon,cunit);
 }
 
 const loadWeater = (lat, lon, unit) => {
