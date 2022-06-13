@@ -66,16 +66,16 @@ function getWeater(weather) {
 
       const container = document.getElementById('background');
       if ( Cweather=== "Clear"){
-         container.style.backgroundImage = "url('img/sunny.jfif')";
+         container.style.backgroundImage = "url('img/sunny.jpg')";
       }
       else if( Cweather=== "Rain"  || Cweather === "Thunderstorm"  || Cweather === "Drizzle"  ){
-         container.style.backgroundImage = "url('img/rainy.jfif')";
+         container.style.backgroundImage = "url('img/rainy.jpg')";
       }
       else if( Cweather=== "Snow"){
-         container.style.backgroundImage = "url('img/snow.jfif')";
+         container.style.backgroundImage = "url('img/snow.jpg')";
       }
       else{
-         container.style.backgroundImage = "url('img/cloudy.jfif')";
+         container.style.backgroundImage = "url('img/cloudy.jpg')";
       }
       container.style.backgroundSize = "cover";
 

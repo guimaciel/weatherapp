@@ -45,7 +45,7 @@ html, body {
 .container {
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.736);
+  background-color: rgba(0, 0, 0, 0.12);
   min-height: 75vh;
 }
 .container-background {
@@ -57,7 +57,7 @@ html, body {
 }
 .container-background-current {
   padding: 2rem;
-  background-color: rgba(158, 173, 186, 0.2274509804);
+  background-color: rgba(158, 173, 186, 0.3529411765);
   text-align: center;
 }
 .container-background-forecast {
@@ -67,7 +67,7 @@ html, body {
        column-gap: 1rem;
 }
 .container-background-forecast-01, .container-background-forecast-02, .container-background-forecast-03, .container-background-forecast-04, .container-background-forecast-05 {
-  background-color: rgba(158, 173, 186, 0.2274509804);
+  background-color: rgba(158, 173, 186, 0.3529411765);
   text-align: center;
 }
 .container-background-forecast-01 .line, .container-background-forecast-02 .line, .container-background-forecast-03 .line, .container-background-forecast-04 .line, .container-background-forecast-05 .line {
@@ -99,7 +99,7 @@ html, body {
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
-  background-color: rgba(158, 173, 186, 0.2274509804);
+  background-color: rgba(158, 173, 186, 0.3529411765);
   text-align: center;
 }
 .container-background-hour-01 .hours, .container-background-hour-02 .hours, .container-background-hour-03 .hours, .container-background-hour-04 .hours, .container-background-hour-05 .hours, .container-background-hour-06 .hours, .container-background-hour-07 .hours, .container-background-hour-08 .hours {

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;400&display=swap');
 
+$card-colour: #9eadba5a;
+
 * {
     margin: 0;
     padding: 0;
@@ -57,14 +59,9 @@ html, body {
 }
 
 .container {
-    // background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.736);
-    // bottom: 0px;
-    // display: flex;
-    // flex-direction: column;
-    // height: 
+    background-color: rgba(0, 0, 0, 0.12);
     min-height: 75vh;
 
     &-background {
@@ -75,7 +72,7 @@ html, body {
         row-gap: 2rem;
         &-current {
             padding: 2rem;
-            background-color: #9eadba3a;
+            background-color: $card-colour;
             text-align: center;
         }
 
@@ -84,7 +81,7 @@ html, body {
             grid-template-columns: repeat(5, 1fr);
             column-gap: 1rem;
             &-01, &-02, &-03, &-04, &-05 {
-                background-color: #9eadba3a;
+                background-color: $card-colour;
                 text-align: center;
 
                 .line {
@@ -118,7 +115,7 @@ html, body {
                 display: flex;
                 flex-direction: column;
                 row-gap: 0.5rem;
-                background-color: #9eadba3a;
+                background-color: $card-colour;
                 text-align: center;
                 
 

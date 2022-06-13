@@ -63,16 +63,6 @@ function getWeatherForecast(weather) {
             if (count === 1) {
                 changeHoursForecast(weather,dt);
             }
-            // Forecast 8 hours ahead
-            // if (hourIndex < 8 ) {                
-            //     let divHour = document.createElement("div");
-            //     divHour.className = `container-background-hour-0${count}`;
-            //     divHour.innerHTML = `<p class="hours">${dt.getHours()} - ${addHours(dt,3).getHours()}</p>
-            //     <img src=" http://openweathermap.org/img/wn/${icon}@2x.png">
-            //     <h1>${weather.list[hourIndex].main.temp}${unitSymbol}</h1>                
-            //     `;
-            //     containerHour.appendChild(divHour);
-            // }
         }
     }
 
@@ -113,16 +103,5 @@ function changeHoursForecast(weather,dt) {
             containerHour.appendChild(divHour);
         }
     }
-    // const containerHour = document.getElementById("container-background-hour");
-    // containerHour.innerHTML = "";
-    // if (hourIndex < 8 ) {                
-    //     let divHour = document.createElement("div");
-    //     divHour.className = `container-background-hour-0${count}`;
-    //     divHour.innerHTML = `<p class="hours">${dt.getHours()} - ${addHours(dt,3).getHours()}</p>
-    //     <img src=" http://openweathermap.org/img/wn/${icon}@2x.png">
-    //     <h1>${weather.list[hourIndex].main.temp}${unitSymbol}</h1>                
-    //     `;
-    //     containerHour.appendChild(divHour);
-    // }
 
 }
