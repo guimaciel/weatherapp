@@ -225,6 +225,11 @@ a:hover {
   position: absolute;
 }
 
+.container-background-forecast-01:hover, .container-background-forecast-02:hover, .container-background-forecast-03:hover, .container-background-forecast-04:hover, .container-background-forecast-05:hover {
+  background-color: #9eadba;
+  cursor: pointer;
+}
+
 @-webkit-keyframes spin {
   0% {
     transform: rotate(0deg);

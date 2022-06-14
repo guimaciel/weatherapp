@@ -75,8 +75,6 @@ function addHours(dt,hoursAdd) {
 }
 
 function changeHoursForecast(weather,dt) {
-    console.log(dt);
-    console.dir(weather);
     const containerHour = document.getElementById("container-background-hour");
     containerHour.innerHTML = "";
     let count = 0;
@@ -89,9 +87,7 @@ function changeHoursForecast(weather,dt) {
         }
         if (checkDate && count < 8) {
             count++;
-            console.log(count);
             let icon = weather.list[hourIndex].weather[0].icon;
-            console.log(dt.toLocaleDateString() + " - " + dtList.toLocaleDateString() + " - " + count);
             let divHour = document.createElement("div");
             divHour.className = `container-background-hour-0${count}`;
             divHour.innerHTML = `
